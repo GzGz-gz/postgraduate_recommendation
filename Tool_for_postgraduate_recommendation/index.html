@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>导师信息管理</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header">
+    <span class="header-title">导师信息管理</span>
+    <nav class="header-nav">
+      <button class="nav-tab active" data-tab="dashboard">导师看板</button>
+      <button class="nav-tab" data-tab="schools">院校列表</button>
+      <button class="nav-tab" data-tab="timeline">时间线</button>
+    </nav>
+    <div class="header-actions">
+      <button class="btn" onclick="exportData()">导出 JSON</button>
+      <button class="btn" onclick="exportMarkdown()">导出 MD</button>
+      <button class="btn" onclick="importData()">JSON文件 导入</button>
+      <button class="btn" onclick="openAIImportModal()">JSON 导入</button>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="main">
+    <section id="dashboard-tab" class="tab-content active"></section>
+    <section id="schools-tab" class="tab-content"></section>
+    <section id="timeline-tab" class="tab-content"></section>
+  </main>
+
+  <!-- FAB - Add Advisor -->
+  <button class="fab" id="fabBtn" onclick="addAdvisorModal()" title="新增导师">+</button>
+
+  <!-- Modal -->
+  <div class="modal-overlay hidden" id="modalOverlay">
+    <div class="modal">
+      <h3 id="modalTitle"></h3>
+      <div id="modalBody"></div>
+      <div class="form-actions">
+        <button class="btn" id="modalCancel">取消</button>
+        <button class="btn btn-primary" id="modalSave">保存</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/store.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
